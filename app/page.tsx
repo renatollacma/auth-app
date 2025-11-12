@@ -1,65 +1,38 @@
 import Image from "next/image";
+import InputGroup from "./components/InputGroup";
+import LabelForm from "./components/LabelForm";
+import Input from "./components/Input";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="w-full h-screen grid grid-cols-1 font-sans items-center justify-center md:grid-cols-2">
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="max-w-80 w-full flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-semibold">Iniciar Sesión</h2>
+            <p className="text-sm text-gray-600">Ingrese sus credenciales para acceder</p>
+          </div>
+          <form action="" className="w-full flex flex-col gap-6">
+            <InputGroup>
+              <LabelForm nameFor="email" text="Email" />
+              <Input type="text" name="email" placeholder="example@gmail.com" />
+            </InputGroup>
+            <InputGroup>
+              <LabelForm nameFor="password" text="Contraseña" />
+              <Input type="password" name="password" placeholder="Contraseña" />
+            </InputGroup>
+            <button className="bg-blue-600 text-white text-sm font-semibold px-3 py-2 rounded-lg hover:bg-blue-800 transition duration-200">Iniciar Sesión</button>
+          </form>
+          <div className="flex items-center justify-center text-sm gap-2">
+            <p>Aún no tienes cuenta?</p>
+            <a href="" className="font-semibold text-blue-600">Registrarme</a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+      
+      <div className="hidden w-full h-full bg-blue-800 text-white md:flex items-end p-14">
+        <span className="text-4xl font-semibold">Empiece a vivir experiencias inolvidables en nuestra Plataforma todo en Uno.</span>
+      </div>
+    </main>
   );
 }
